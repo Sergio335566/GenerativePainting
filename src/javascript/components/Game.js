@@ -20,16 +20,9 @@ class Game {
         this.setupValues()
         this.loadPlayerImage()
         this.loadEnnemiesImages()
-        this.createCanvas()
         this.resizeCanvas()
         this.setupListeners()
     }
-
-    createCanvas() {
-        this.canvas.width = window.innerWidth
-        this.canvas.height = window.innerHeight
-    }
-
     setupValues() {
         this.nbPlayerImg = 2
         this.nbEnnemies = 3
