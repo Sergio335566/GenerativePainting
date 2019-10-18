@@ -13,6 +13,7 @@ class Game {
         this.levelElm = container.querySelector('.level')
         this.levelSelector = container.querySelector('.js-level')
         this.restart = container.querySelector('.js-restart')
+        this.leaderboardBtn = container.querySelector('.js-btnLB')
         this.setupFunctions();
     }
 
@@ -49,7 +50,7 @@ class Game {
     }
 
     loadImage(img) {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             img.onload = () => {
                 resolve()
             }
@@ -132,10 +133,12 @@ class Game {
         this.levelManager.endGame()
         this.levelElm.innerHTML = 'miaam'
         this.restart.classList.add('active')
+        this.leaderboardBtn.classList.add('active')
+        this.sendScore()
+        this.finished = true
         this.restart.addEventListener('click', () => {
             window.location.reload()
         })
-        this.finished = true
     }
 
     isLevelChanged() {
@@ -154,6 +157,17 @@ class Game {
 
     clearCanvas() {
         this.context.clearRect(0, 0, window.innerWidth, window.innerHeight)
+    }
+    sendScore() {
+        fetch("https://dfts-bdd.herokuapp.com/score",
+            {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                method: "POST",
+                body: JSON.stringify({ name: window.localStorage.getItem('name'), score: this.levelManager.timer.seconds })
+            })
     }
 
 }

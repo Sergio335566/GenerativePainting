@@ -54,26 +54,55 @@ h1
     top: 0
     left: 0
     z-index: 999
+    .content
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        .username_input
+            position: absolute
+            bottom: -3.5rem
+            left: 50%
+            transform: translate(-50%, -50%)
+            input
+                padding: 10px
+                text-align: center
+                text-transform: uppercase
+                font-family: sans-serif
+                background-color: transparent
+                border: 0
+                border-bottom: 1px solid #FFEE00
+                outline: none
+                color: #FFEE00
+            input::placeholder
+                color: #FFEE00
+                outline: none
+            input::focus
+                outline: none
+                border: 0
+        .title
+            font-size: 3rem
+        .start-button
+            bottom: -7rem
+            background-color: #FFEE00
+            padding: 10px
+            color: #0A007C
+            left: 50%
+            transform: translate(-50%, -50%)
+            cursor: pointer
+            position: absolute
     .gif-head
         width: 250px
         position: absolute
         top: 50%
         left: 0
-        transform: translate(0, -50%)
-    .title
-        font-size: 3rem
+        transform: translate(0, -50%)   
+    .beer
         position: absolute
-        top: 50%
+        bottom: 30px
         left: 50%
-        transform: translate(-50%, -50%)
-    .start-button
-        position: absolute
-        top: 60%
-        background-color: #FFEE00
-        padding: 10px
-        color: #0A007C
-        left: 50%
-        transform: translate(-50%, -50%)
-        cursor: pointer                
+        transform: translate(-50%, 0)
+        text-transform: none  
+
 .hidden
     display: none

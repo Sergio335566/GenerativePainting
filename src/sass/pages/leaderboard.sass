@@ -1,0 +1,39 @@
+.leaderboard
+    background-color: #FFEE00
+    color: #0A007C
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+    height: 250px
+    width: 550px
+    padding: 30px
+    display: none
+    z-index: 9999
+    overflow-y: scroll
+    .padding-leaderboard
+        padding: 20px
+        display: flex
+    &_name, &_time
+        width: 50%
+        h2
+            text-align: center
+        &--player
+            width: 100%
+            display: block
+    &_time
+        &--player
+            text-align: right
+    &.active
+        display: block
+.leaderboard-button
+    color: #FFEE00
+    position: absolute
+    bottom: 30px
+    left: 50%
+    transform: translateX(-50%)
+    cursor: pointer
+    user-select: none
+    display: none
+    &.active
+        display: block

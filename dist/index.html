@@ -6,23 +6,38 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Boilerplate</title>
     <link rel="stylesheet" href="./css/app.css">
-    <script src="./javascript/bundle.js"></script>
   </head>
   <body>
     <div class="js-container">
       <div class="start-window js-window">
-        <span class="title">Don't feed the Serge</span>
-        <span class="start-button js-startBtn">i'm ready</span>
+        <div class="content">
+          <span class="title">Don't feed the Serge</span>
+          <span class="start-button js-startBtn">i'm ready</span>
+          <div class="username_input">
+              <input class="input_name" type="text" placeholder="your username" required="true">
+          </div>
+          
+        </div>
+        <div class="beer">*if you reach 50 seconds i'll pay you beers</div>
         <img class="gif-head" src="./img/head.gif" alt="">
       </div>
+      <div class="leaderboard js-leaderboard">
+        <div class="padding-leaderboard">
+          <div class="leaderboard_name">
+              <h2>Name</h2>
+          </div>
+          <div class="leaderboard_time">
+              <h2>Time</h2>
+          </div>
+       </div>
+      </div>
+      <div class="js-btnLB leaderboard-button"> view leaderboard</div>
       <div class="level">level&nbsp<span class="js-level">1</span></div>
       <div class="words js-words"></div>
       <div class="js-restart restart-btn">restart feeding</div>
-      <!-- <div class="text" class="js-score">
-        <h3>Your score: <br><br><span>
-      </div> -->
       <h1 class="timer-value"></h1>
       <canvas></canvas>
     </div>
   </body>
+  <script src="./javascript/bundle.js"></script>
 </html>
