@@ -40,7 +40,7 @@ class Game {
         const imgLoadedPromises = []
         for (let index = 0; index < this.nbEnnemies; index++) {
             let img = new Image()
-            img.src = `../img/ennemy_0${index}.png`
+            img.src = `https://res.cloudinary.com/dgxpb4jhs/image/upload/v1571409184/ennemy_0${index}.png`
             imgLoadedPromises.push(this.loadImage(img))
             this.imgEnnemies.push(img)
         }
@@ -59,7 +59,7 @@ class Game {
 
     loadPlayerImage() {
         let img = new Image()
-        img.src = `../img/player_01.png`
+        img.src = `https://raw.githubusercontent.com/Sergio335566/DFTS/master/dist/img/player_02.png`
         img.onload = this.createPlayer.bind(this, img)
     }
 
@@ -69,8 +69,8 @@ class Game {
                 img: this.imgEnnemies[index],
                 x: Math.random() * this.canvas.width - 40,
                 y: 0,
-                width: this.imgEnnemies[index].width / 20,
-                height: this.imgEnnemies[index].height / 20,
+                width: this.imgEnnemies[index].width / 5,
+                height: this.imgEnnemies[index].height / 5,
                 speedX: Math.random() * 5 * this.currentLevelValue,
                 speedY: Math.random() * 5 * this.currentLevelValue,
             })

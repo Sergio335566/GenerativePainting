@@ -4,8 +4,9 @@
   "description": "Boilerplate",
   "main": "index.js",
   "scripts": {
-    "build": "webpack -p",
-    "heroku-postbuild": "webpack -p --config ./webpack.config.js --progress"
+    "start": "gulp",
+    "build": "webpack",
+    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress"
   },
   "author": "Bocancea Serge",
   "license": "ISC",
