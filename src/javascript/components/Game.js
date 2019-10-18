@@ -139,14 +139,16 @@ class Game {
         this.levelManager.endGame()
         this.levelElm.innerHTML = 'miaam'
         this.restart.classList.add('active')
-        this.restart.addEventListener('click', this.restartGame.bind(this))
+        this.restart.addEventListener('click', () => {
+            window.location.reload()
+        })
         this.finished = true
     }
 
     isLevelChanged() {
         let newLevel = this.levelManager.levelValue
         if (this.currentLevelValue != newLevel) {
-            this.initNewLevel()
+            this.createEnnemies()
         }
         this.levelSelector.innerHTML = this.currentLevelValue
         this.currentLevelValue = newLevel
@@ -159,14 +161,6 @@ class Game {
 
     clearCanvas() {
         this.context.clearRect(0, 0, window.innerWidth, window.innerHeight)
-    }
-
-    initNewLevel() {
-        this.createEnnemies()
-    }
-
-    restartGame() {
-        window.location.reload()
     }
 
 }
