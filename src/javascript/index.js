@@ -1,6 +1,5 @@
 //IMPORTS
 import Game from './components/Game';
-import ChangeWord from './components/ChangeWord'
 
 /*global window, document */
 document.addEventListener("DOMContentLoaded", function () {
@@ -11,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
       windowStart.classList.add('hidden')
       setTimeout(() => {
          new Game();
-         // new ChangeWord()
       }, 500);
    })
 });

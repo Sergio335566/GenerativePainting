@@ -1,5 +1,5 @@
 class Ennemy {
-    constructor({ img, x, y, width, height, speedX, speedY, angle }) {
+    constructor({ img, x, y, width, height, speedX, speedY }) {
         this.img = img;
         this.x = x;
         this.y = y;
@@ -7,7 +7,6 @@ class Ennemy {
         this.width = width;
         this.speedX = speedX;
         this.speedY = speedY;
-        this.angle = angle;
     }
     draw(context) {
         this.context = context;

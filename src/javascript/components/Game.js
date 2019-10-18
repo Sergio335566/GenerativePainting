@@ -78,9 +78,8 @@ class Game {
                 y: 0,
                 width: this.imgEnnemies[index].width / 20,
                 height: this.imgEnnemies[index].height / 20,
-                speedX: Math.random() * 3 * this.levelValue,
-                speedY: Math.random() * 3 * this.levelValue,
-                angle: Math.random(),
+                speedX: Math.random() * 5 * this.levelValue,
+                speedY: Math.random() * 5 * this.levelValue,
                 direction: Math.random() * (100 - 50) + 50
 
             }
@@ -92,7 +91,6 @@ class Game {
                 height: this.ennemyProps.height,
                 speedX: this.ennemyProps.speedX,
                 speedY: this.ennemyProps.speedY,
-                angle: this.ennemyProps.angle,
             })
             this.ennemies.push(this.ennemy)
         }
@@ -126,18 +124,15 @@ class Game {
         this.drawPlayer()
         this.drawEnnemy()
         this.levelDifficulty()
-        if (!this.finished)
+
+        if (!this.finished) {
             window.requestAnimationFrame(this.draw.bind(this))
+        }
 
         for (let index = 0; index < this.ennemies.length; index++) {
             this.detectCollision(index)
         }
 
-    }
-    createRandomColor() {
-        this.colorTab = ['#FFEE00', '#0A007C'];
-        this.randomColor = this.colorTab[Math.floor(Math.random() * this.colorTab.length)]
-        this.canvas.style.background = this.randomColor
     }
     drawPlayer() {
         if (this.player) {
@@ -173,29 +168,23 @@ class Game {
         this.context.clearRect(0, 0, window.innerWidth, window.innerHeight)
     }
     levelDifficulty() {
-        if (!this.needUpdate && this.timer.seconds > 8.00 && this.levelValue == 1) {
+        if (this.timer.seconds > 8.00 && this.levelValue == 1) {
             this.levelValue = 2
             this.needUpdate = true
             this.initNewLevel()
-        }
-        if (!this.needUpdate && this.timer.seconds > 14.00 && this.levelValue == 2) {
+        } else if (this.timer.seconds > 15.00 && this.levelValue == 2) {
             this.levelValue = 3
             this.needUpdate = true
             this.initNewLevel()
-        }
-        if (!this.needUpdate && this.timer.seconds > 20.00 && this.levelValue == 3) {
+        } else if (this.timer.seconds > 20.00 && this.levelValue == 3) {
             this.levelValue = 4
             this.needUpdate = true
             this.initNewLevel()
-        }
-        if (!this.needUpdate && this.timer.seconds > 30.00 && this.levelValue == 4) {
+        } else if (this.timer.seconds > 30.00 && this.levelValue == 4) {
             this.levelValue = 5
             this.needUpdate = true
             this.initNewLevel()
         }
-        setInterval(() => {
-            this.needUpdate = false
-        }, 1000);
     }
     initNewLevel() {
         this.levelSelector.innerHTML = this.levelValue
